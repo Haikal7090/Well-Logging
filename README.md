@@ -582,7 +582,7 @@ These outputs allow the three Rw estimation methods to be evaluated side-by-side
 
 ---
 
-# ⚠️ Important Assumptions & Limitations
+#  Important Assumptions & Limitations
 
 Petrophysical interpretation is inherently non-unique.
 
@@ -634,7 +634,7 @@ Correlation coefficients and peak matching must still be evaluated within the ge
 
 ---
 
-# 🔧 Configuration
+#  Configuration
 
 Most parameters can be modified from:
 
@@ -663,7 +663,7 @@ This allows sensitivity testing without modifying the core calculation modules.
 
 ---
 
-# 🔮 Possible Future Development
+#  Possible Future Development
 
 The current workflow can be expanded into a more complete petrophysical interpretation framework.
 
