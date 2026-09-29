@@ -146,15 +146,17 @@ parameters to be changed without modifying the calculation modules.
 
 ## 4. Lithology Classification
 
-Intervals are classified using shale-volume thresholds defined centrally in `config.py`.
+Intervals are classified using shale-volume thresholds defined in `config.py`.
 
-| Vsh | Interpretation |
-|---:|---|
-| \(V_{sh}<0.10\) | 🟨 Clean Sand |
-| \(0.10 \leq V_{sh}\leq0.33\) | 🟧 Shaly Sand |
-| \(V_{sh}>0.33\) | 🟫 Shale |
+| Vsh Range | Interpretation |
+|---|---|
+| Vsh < 0.10 | Clean Sand |
+| 0.10 ≤ Vsh ≤ 0.33 | Shaly Sand |
+| Vsh > 0.33 | Shale |
 
-These thresholds are interpretation criteria rather than universal geological constants and may need recalibration when the workflow is applied to another field or formation.
+These thresholds are interpretation criteria rather than universal geological
+constants and may need recalibration when the workflow is applied to another
+field or formation.
 
 ---
 
@@ -183,7 +185,7 @@ This is useful because agreement between different logging responses increases c
 
 ---
 
-# 🧱 Formation Zonation
+#  Formation Zonation
 
 The workflow performs automated zonation primarily using the **15/9-13 Gamma Ray log**.
 
@@ -208,7 +210,7 @@ Manual picks can be introduced through `MANUAL_PICKS` in `config.py` when author
 
 ---
 
-# 🔗 Well-to-Well Correlation
+#  Well-to-Well Correlation
 
 The repository includes a dedicated correlation workflow between:
 
@@ -273,26 +275,19 @@ Because SP-derived Rw can be sensitive to uncertain mud and formation-water cond
 
 ## Method 3 — Archie-based Rw
 
-Clean-sand intervals from **15/9-A-16** are selected using porosity and shale-volume criteria.
+For clean water-bearing formations, Archie’s equation can be written as:
 
-Archie's relationship is then used to estimate formation-water resistivity.
+$$
+R_t = \frac{aR_w}{\phi^m S_w^n}
+$$
 
-Conceptually:
+For sufficiently clean intervals where:
 
-\[
-R_t
-=
-\frac{aR_w}
-{\phi^m S_w^n}
-\]
-
-For sufficiently clean, water-bearing intervals where:
-
-\[
+$$
 S_w \approx 1
-\]
+$$
 
-the equation can be rearranged to estimate \(R_w\).
+the equation can be rearranged to estimate $R_w$.
 
 Multiple cementation-factor assumptions are evaluated to examine sensitivity.
 
@@ -692,7 +687,7 @@ Potential additions include:
 
 ---
 
-# 📚 Dataset Reference
+#  Dataset Reference
 
 If the Sleipner data are used in academic work, the original dataset and its associated documentation should be cited separately.
 
@@ -704,7 +699,7 @@ The official dataset contains simulation models, well data, petrophysical inform
 
 ---
 
-# 📜 Licensing Note
+#  Licensing Note
 
 The **Sleipner input data** are distributed under the **Sleipner CO₂ Reference Dataset License**.
 
@@ -714,19 +709,13 @@ If the code is intended for public reuse, redistribution, or collaboration, a de
 
 ---
 
-# 👤 Author
-
-**Haikal**
-
-Petroleum Engineering  
-Interested in **Petrophysics, Reservoir Engineering, CCS/CCUS, Geothermal Energy, and Computational Energy Engineering**
-
----
-
 <div align="center">
 
-### 🛢️ From raw well logs to reproducible subsurface interpretation.
+### Contributors
 
-**Well Logging · Petrophysics · Python · CCS**
+**Haikal** · **Raju**  
+Petroleum Engineering
+
+> *Reading the subsurface, one log at a time.*
 
 </div>
