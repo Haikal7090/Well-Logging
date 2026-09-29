@@ -41,7 +41,7 @@ tested separately.
 
 ---
 
-## 🌍 Geological Context
+##  Geological Context
 
 The **Sleipner CO₂ storage project** is one of the world's longest-running industrial-scale geological carbon storage projects.
 
@@ -65,7 +65,7 @@ The reference dataset includes the wells **15/9-13** and **15/9-A-16**, which ar
 
 ---
 
-# 🎯 Project Objectives
+#  Project Objectives
 
 The workflow is designed to answer several petrophysical questions:
 
@@ -79,7 +79,7 @@ The workflow is designed to answer several petrophysical questions:
 
 ---
 
-# 🔬 Analysis Workflow
+#  Analysis Workflow
 
 ```mermaid
 flowchart TD
@@ -119,101 +119,28 @@ flowchart TD
 
 ---
 
-# 🧠 Methodology
+## Methodology
 
-## 1. Data Loading and Quality Control
+### Gamma Ray Index
 
-Raw well-log data are imported from Excel files and converted into a consistent numerical format before interpretation.
+Gamma Ray is used as the main lithological indicator in this workflow.
+The log response is normalized between a clean-sand reference and a shale
+reference using the Gamma Ray index:
 
-The preprocessing stage includes:
-
-- standardizing column names,
-- converting invalid values to `NaN`,
-- replacing the dataset null value `-999.25`,
-- removing duplicated depth measurements,
-- sorting measurements by depth,
-- removing completely empty curves,
-- filtering unrealistic sonic-log values, and
-- removing invalid SP spikes where appropriate.
-
-This separation between **data cleaning** and **petrophysical interpretation** reduces the risk of silently modifying the original data during later calculations.
-
----
-
-## 2. Gamma Ray Analysis
-
-Gamma Ray (**GR**) is used as the primary lithological indicator.
-
-In siliciclastic formations, higher GR responses commonly indicate a greater contribution from radioactive clay minerals, while relatively low GR responses are generally associated with cleaner sandstone intervals.
-
-The normalized Gamma Ray index is calculated as:
-
-\[
-I_{GR}
-=
-\frac{GR_{log}-GR_{min}}
-{GR_{max}-GR_{min}}
-\]
+$$
+I_{GR} =
+\frac{GR_{\mathrm{log}} - GR_{\min}}
+     {GR_{\max} - GR_{\min}}
+$$
 
 where:
 
-- \(GR_{log}\) = measured Gamma Ray,
-- \(GR_{min}\) = clean-sand reference,
-- \(GR_{max}\) = shale reference.
+- $GR_{\mathrm{log}}$ is the measured Gamma Ray response,
+- $GR_{\min}$ represents the clean-sand reference,
+- $GR_{\max}$ represents the shale reference.
 
-The reference GR values used in the workflow are centralized in `config.py` so that the interpretation assumptions are not duplicated across modules.
-
----
-
-## 3. Volume of Shale — Vsh
-
-A single Gamma Ray index does not uniquely define shale volume.
-
-For this reason, several commonly used empirical transformations are evaluated.
-
-### Linear
-
-\[
-V_{sh}=I_{GR}
-\]
-
-The linear model provides the simplest estimate and generally produces relatively high shale-volume values.
-
----
-
-### Clavier
-
-\[
-V_{sh}
-=
-1.7-\sqrt{3.38-(I_{GR}+0.7)^2}
-\]
-
----
-
-### Steiber
-
-\[
-V_{sh}
-=
-\frac{I_{GR}}
-{3-2I_{GR}}
-\]
-
----
-
-### Larionov — Tertiary Rocks
-
-\[
-V_{sh}
-=
-0.083
-\left(
-2^{3.7I_{GR}}-1
-\right)
-\]
-
-The workflow therefore allows the effect of the selected Vsh model to be compared rather than relying on a single empirical relationship.
+The reference values are defined in `config.py`, allowing the interpretation
+parameters to be changed without modifying the calculation modules.
 
 ---
 
@@ -315,7 +242,7 @@ This allows the selected correlation to be evaluated against nearby alternatives
 
 ---
 
-# 💧 Formation Water Resistivity — Rw
+#  Formation Water Resistivity — Rw
 
 Formation-water resistivity is evaluated through **three independent approaches**.
 
@@ -399,7 +326,7 @@ Instead, discrepancies are used to identify uncertainty in:
 
 ---
 
-# 🗂️ Repository Structure
+#  Repository Structure
 
 ```text
 Well-Logging/
@@ -457,7 +384,7 @@ Well-Logging/
 
 ---
 
-# 🧩 Code Architecture
+#  Code Architecture
 
 The repository follows a simple separation-of-responsibility principle.
 
@@ -478,7 +405,7 @@ This makes sensitivity analysis and future modification significantly easier.
 
 ---
 
-# ⚙️ Installation
+#  Installation
 
 ## 1. Clone the repository
 
@@ -521,7 +448,7 @@ Main Python libraries used in the workflow:
 
 ---
 
-# ▶️ Running the Analysis
+#  Running the Analysis
 
 Make sure the required Excel files are available:
 
@@ -575,7 +502,7 @@ output/figures/
 
 ---
 
-# 📊 Generated Outputs
+#  Generated Outputs
 
 The workflow automatically generates publication/report-ready outputs.
 
