@@ -1,39 +1,43 @@
-# Well-Logging
 <div align="center">
 
-# 🛢️ Well Logging Analysis
-### Petrophysical Interpretation of the Sleipner CO₂ Storage Dataset
+# Well Logging & Petrophysical Analysis
 
-**Gamma Ray • Spontaneous Potential • Vshale • Formation Zonation • Well Correlation • Formation Water Resistivity**
+**Petrophysical interpretation and well correlation workflow for the Sleipner CO₂ Storage Dataset**
 
-`Python` · `Petrophysics` · `Well Logging` · `Sleipner` · `Utsira Formation` · `CCS`
+<br>
+
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-Numerical-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data_Processing-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-Scientific_Computing-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge)
+
+<br>
+
+`Well Logging` · `Petrophysics` · `Formation Evaluation` · `CCS`
 
 </div>
 
 ---
 
-## 📖 Overview
+## Overview
 
-This repository contains a **Python-based well logging and petrophysical interpretation workflow** developed using well data from the **Sleipner 2019 Benchmark Model**, a public reference dataset for the Sleipner CO₂ storage site in the Norwegian North Sea.
+This repository contains a Python-based workflow for well-log processing and
+petrophysical interpretation using data from the **Sleipner CO₂ Storage
+Dataset**.
 
-The analysis focuses on two wells:
+The analysis focuses on wells **15/9-13** and **15/9-A-16** and includes:
 
-- **15/9-13**
-- **15/9-A-16**
+- Gamma Ray and Spontaneous Potential analysis
+- shale-volume estimation
+- lithology classification
+- formation zonation
+- inter-well correlation
+- formation-water resistivity estimation
 
-The workflow processes conventional well-log data to evaluate lithology, estimate shale volume, identify stratigraphic intervals, correlate geological markers between wells, and estimate formation-water resistivity using several independent approaches.
-
-Rather than placing all calculations in a single script, the project is organized into dedicated modules for:
-
-- data loading and cleaning,
-- shale-volume calculation,
-- formation zonation,
-- inter-well correlation,
-- formation-water resistivity estimation,
-- visualization, and
-- workflow orchestration.
-
-The main objective is to create a **transparent and reproducible petrophysical workflow** where assumptions, calculations, and outputs can be traced independently.
+The workflow is divided into independent modules so that data processing,
+petrophysical calculations, plotting, and interpretation can be modified and
+tested separately.
 
 ---
 
